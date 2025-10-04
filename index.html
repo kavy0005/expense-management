@@ -9,13 +9,15 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">💸 Expense Management</div>
+    <div class="logo">Penny-pilot</div>
     <ul class="nav-links">
       <li><a href="#" id="homeBtn">Home</a></li>
       <li><a href="login.html">Login</a></li>
       <li><a href="signup.html">Signup</a></li>
-      <li><a href="#">Track Approval</a></li>
-      <li><a href="#">Smart Invest</a></li>
+      <li><a href="manager.html">manager</a></li>
+      <li><a href="employee.html">employee</a></li>
+      <li><a href="admin.html">admin</a></li>
+    
     </ul>
   </nav>
 
@@ -25,52 +27,59 @@
       <h1>Expense Management</h1>
       <p>"A smart and seamless platform where Employees can easily submit their expenses, Managers review and approve with transparency, and Admins efficiently manage the entire system with complete control."</p>
     </div>
+    <div class="hero-img">
+      <img src="/expense-management/asset/logo.jpg" alt="Logo">
+    </div>
   </section>
 
   <!-- About Us -->
   <section class="about">
     <h2>About Us</h2>
-
     <div class="about-text">
-      <p class="lead">Expense Management is a purpose-built platform that simplifies corporate spending across teams and geographies. Combining intuitive receipt capture, configurable approval flows, and enterprise-grade reporting, we reduce processing time and improve financial oversight—helping organizations optimize spend and improve compliance.
-      Our solution is designed for real-world finance operations: mobile-first capture for on-the-go users, policy-driven automation for scalable approvals, and secure data handling for audit readiness. We integrate with payroll, accounting, and identity providers so businesses can adopt the platform without disrupting existing processes.</p>
-      <div></dibe the trusted global platform for transparent, policy-driven expense management and actionable financial insights.
-      Expense Management is a purpose-built platform that brings clarity and control to corporate spending. With mobile-first receipt capture, configurable approval chains, and real-time dashboards, we streamline expense submission and approvals so finance and managers can focus on exceptions, not paperwork. Our secure, auditable system integrates with payroll and accounting tools and supports multi-currency reporting, helping businesses improve compliance and reduce reimbursements time.</h4>
+      <p class="lead">
+        Expense Management is a purpose-built platform that simplifies corporate spending across teams and geographies. Combining intuitive receipt capture, configurable approval flows, and enterprise-grade reporting, we reduce processing time and improve financial oversight—helping organizations optimize spend and improve compliance.
+      </p>
+      <p>
+        Our solution is designed for real-world finance operations: mobile-first capture for on-the-go users, policy-driven automation for scalable approvals, and secure data handling for audit readiness. We integrate with payroll, accounting, and identity providers so businesses can adopt the platform without disrupting existing processes.
+      </p>
+      <p>
+        Trusted globally, Expense Management brings clarity and control to corporate spending. With mobile-first receipt capture, configurable approval chains, and real-time dashboards, we streamline expense submission and approvals. Our secure system integrates with payroll and accounting tools and supports multi-currency reporting, helping businesses improve compliance and reduce reimbursement time.
+      </p>
     </div>
 
-    <!-- Services now placed below About Us -->
+    <!-- Services -->
     <div class="services" aria-labelledby="services-heading">
-      <h3 id="services-heading">Our services</h3>
+      <h3 id="services-heading">Our Services</h3>
       <div class="services-grid">
         <div class="service-card">
-          <h4>Receipt capture & OCR</h4>
+          <h4>Receipt Capture & OCR</h4>
           <p>Upload receipts via mobile or web and extract key fields automatically.</p>
         </div>
         <div class="service-card">
-          <h4>Policy-driven approvals</h4>
+          <h4>Policy-driven Approvals</h4>
           <p>Define rules and approval chains to enforce company spending policies.</p>
         </div>
         <div class="service-card">
-          <h4>Real-time Notifications System</h4>
-          <p>Dashboards and exportable reports that make finance decisions data-driven.</p>
+          <h4>Real-time Notifications</h4>
+          <p>Dashboards and alerts keep managers and finance teams informed instantly.</p>
         </div>
         <div class="service-card">
-          <h4>Multi-currency support</h4>
+          <h4>Monthly & Yearly Reports</h4>
+          <p>Generate detailed expense summaries with charts and analytics for management review.</p>
+        </div>
+        <div class="service-card">
+          <h4>Multi-currency Support</h4>
           <p>Accurate conversion and consolidated reporting across regions.</p>
         </div>
         <div class="service-card">
-          <h4>Role-based security</h4>
-          <p>Least-privilege access and audit trails for compliance and control.</p>
-        </div>
-        <div class="service-card">
-          <h4>Integrations with Multiples</h4>
+          <h4>Integrations</h4>
           <p>Connect with accounting tools, HR systems, and single sign-on providers.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick Expense Submit (like Google style) -->
+  <!-- Quick Expense Submit -->
   <section class="quick-submit">
     <h3>Submit an Expense</h3>
     <div class="submit-row">
@@ -101,10 +110,10 @@
         <div style="margin-top:8px"><button id="submitExpense" class="btn">Submit Expense</button></div>
       </div>
     </div>
-    <p class="note">You can use camera to capture receipts, upload PDFs or paste text from receipt. This demo shows local behavior only.</p>
+    <p class="note">Use camera to capture receipts, upload PDFs or paste text from receipts. This demo shows local behavior only.</p>
   </section>
 
-  <!-- Info boxes (clickable) -->
+  <!-- Info boxes -->
   <section class="info-boxes">
     <div class="info-grid">
       <div class="info-card" data-key="employee">
@@ -168,4 +177,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
