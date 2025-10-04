@@ -1,0 +1,192 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Dashboard | Expense Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #f4f7fb;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: #1d3557;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .dashboard-card {
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      background-color: #457b9d;
+      border: none;
+    }
+    .badge-pending {
+      background-color: #f4a261;
+    }
+    .badge-approved {
+      background-color: #2a9d8f;
+    }
+    .badge-rejected {
+      background-color: #e63946;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Dashboard</a>
+      <span class="navbar-text ms-auto">
+        Welcome, <strong>Rohit Sharma</strong>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row g-3">
+
+      <!-- Profile Card -->
+      <div class="col-md-4">
+        <div class="dashboard-card text-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" width="90" class="mb-3" alt="Profile">
+          <h5>Rohit Sharma</h5>
+          <p class="text-muted">Employee ID: EMP1024</p>
+          <p><strong>Department:</strong> Finance</p>
+          <p><strong>Monthly Limit:</strong> ₹20,000</p>
+          <button class="btn btn-primary btn-sm">Edit Profile</button>
+        </div>
+      </div>
+
+      <!-- Expense Summary Chart -->
+      <div class="col-md-8">
+        <div class="dashboard-card">
+          <h5>Expense Summary (This Month)</h5>
+          <canvas id="expenseChart" height="100"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add Expense Section -->
+    <div class="dashboard-card mt-3">
+      <h5>Add New Expense</h5>
+      <form id="expenseForm" class="row g-3 mt-2">
+        <div class="col-md-3">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="category">
+            <option value="Travel">Travel</option>
+            <option value="Meals">Meals</option>
+            <option value="Office Supplies">Office Supplies</option>
+            <option value="Utilities">Utilities</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Amount (₹)</label>
+          <input type="number" class="form-control" id="amount" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Upload Receipt</label>
+          <input type="file" class="form-control" id="receipt">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit Expense</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Expense Table -->
+    <div class="dashboard-card mt-3">
+      <h5>My Expense History</h5>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Receipt</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable">
+          <tr>
+            <td>1</td>
+            <td>Travel</td>
+            <td>₹2,400</td>
+            <td>2025-10-01</td>
+            <td><span class="badge badge-approved">Approved</span></td>
+            <td><a href="#" class="btn btn-sm btn-outline-secondary">View</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Meals</td>
+            <td>₹800</td>
+            <td>2025-10-03</td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><a href="#" class="btn btn-sm btn-outline-secondary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="dashboard-card mt-3">
+      <h5>Notifications</h5>
+      <ul class="list-group">
+        <li class="list-group-item">✅ Expense #1 (₹2400 - Travel) Approved by Manager</li>
+        <li class="list-group-item">⏳ Expense #2 (₹800 - Meals) is pending approval</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    // Chart.js for Expense Summary
+    const ctx = document.getElementById('expenseChart');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Travel', 'Meals', 'Office Supplies', 'Utilities'],
+        datasets: [{
+          data: [2400, 800, 0, 0],
+          backgroundColor: ['#457b9d', '#a8dadc', '#f4a261', '#2a9d8f']
+        }]
+      }
+    });
+
+    // Handle Expense Form Submission
+    document.getElementById('expenseForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const category = document.getElementById('category').value;
+      const amount = document.getElementById('amount').value;
+      const date = document.getElementById('date').value;
+      const table = document.getElementById('expenseTable');
+      const newRow = table.insertRow();
+      newRow.innerHTML = `
+        <td>${table.rows.length}</td>
+        <td>${category}</td>
+        <td>₹${amount}</td>
+        <td>${date}</td>
+        <td><span class="badge badge-pending">Pending</span></td>
+        <td><a href="#" class="btn btn-sm btn-outline-secondary">View</a></td>
+      `;
+      document.getElementById('expenseForm').reset();
+      alert("Expense submitted successfully!");
+    });
+  </script>
+
+</body>
+</html>
