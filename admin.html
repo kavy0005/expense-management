@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Approval Dashboard | Expense Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f7f9fc;
+    }
+    .navbar {
+      background-color: #1d3557;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .tab-content {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    table th {
+      background-color: #e9ecef;
+    }
+    .btn-approve {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-reject {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <span class="navbar-text ms-auto">
+        Welcome, Admin
+      </span>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <ul class="nav nav-tabs" id="approvalTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="systems-tab" data-bs-toggle="tab" data-bs-target="#systems" type="button" role="tab">Systems</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="transactions-tab" data-bs-toggle="tab" data-bs-target="#transactions" type="button" role="tab">Transactions</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab">Users</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="approvalTabsContent">
+      
+      <!-- Systems Tab -->
+      <div class="tab-pane fade show active" id="systems" role="tabpanel">
+        <h4>System Approvals</h4>
+        <table class="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>System Name</th>
+              <th>Requested By</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="systemTable">
+            <tr>
+              <td>1</td>
+              <td>Finance Module</td>
+              <td>Rohit Sharma</td>
+              <td>2025-10-04</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-approve" onclick="approve(this)">Approve</button>
+                <button class="btn btn-sm btn-reject" onclick="reject(this)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Transactions Tab -->
+      <div class="tab-pane fade" id="transactions" role="tabpanel">
+        <h4>Transaction Approvals</h4>
+        <table class="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>User</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable">
+            <tr>
+              <td>1</td>
+              <td>Priya Patel</td>
+              <td>₹4,800</td>
+              <td>Travel</td>
+              <td>2025-10-02</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-approve" onclick="approve(this)">Approve</button>
+                <button class="btn btn-sm btn-reject" onclick="reject(this)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Users Tab -->
+      <div class="tab-pane fade" id="users" role="tabpanel">
+        <h4>User Approvals</h4>
+        <table class="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userTable">
+            <tr>
+              <td>1</td>
+              <td>Neha Verma</td>
+              <td>neha@example.com</td>
+              <td>Manager</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-approve" onclick="approve(this)">Approve</button>
+                <button class="btn btn-sm btn-reject" onclick="reject(this)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function approve(button) {
+      const row = button.closest('tr');
+      const statusCell = row.querySelector('td:nth-child(5) span');
+      statusCell.className = 'badge bg-success';
+      statusCell.textContent = 'Approved';
+    }
+
+    function reject(button) {
+      const row = button.closest('tr');
+      const statusCell = row.querySelector('td:nth-child(5) span');
+      statusCell.className = 'badge bg-danger';
+      statusCell.textContent = 'Rejected';
+    }
+  </script>
+
+</body>
+</html>
