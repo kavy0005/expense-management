@@ -12,60 +12,65 @@
     <div class="logo">💸 Expense Management</div>
     <ul class="nav-links">
       <li><a href="#" id="homeBtn">Home</a></li>
-      <li><a href="#" id="loginBtn">Login</a></li>
-      <li><a href="#" id="signupBtn">Signup</a></li>
-      <li><a href="#">Track History</a></li>
-      <li><a href="#">Features</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+      <li><a href="#">Track Approval</a></li>
+      <li><a href="#">Smart Invest</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Banner -->
   <section class="hero">
     <div class="hero-content">
       <h1>Expense Management</h1>
-      <p>"A smart platform where Employees can submit expenses, Managers approve, and Admins manage everything effortlessly."</p>
+      <p>"A smart and seamless platform where Employees can easily submit their expenses, Managers review and approve with transparency, and Admins efficiently manage the entire system with complete control."</p>
     </div>
   </section>
 
   <!-- About Us -->
   <section class="about">
     <h2>About Us</h2>
-    <div class="about-text">
-      <p class="lead">Expense Management simplifies company spending. From easy receipt upload to analytics — we streamline your finance workflow.</p>
 
-      <ul class="about-list">
-        <li><strong>Precision Controls:</strong> Role-based access and approval chains.</li>
-        <li><strong>Efficiency:</strong> Automated workflows and OCR scanning.</li>
-        <li><strong>Insights:</strong> Real-time dashboards and reports.</li>
-        <li><strong>Security:</strong> Encrypted storage and compliance support.</li>
-      </ul>
+    <div class="about-text">
+      <p class="lead">Expense Management is a purpose-built platform that simplifies corporate spending across teams and geographies. Combining intuitive receipt capture, configurable approval flows, and enterprise-grade reporting, we reduce processing time and improve financial oversight—helping organizations optimize spend and improve compliance.
+      Our solution is designed for real-world finance operations: mobile-first capture for on-the-go users, policy-driven automation for scalable approvals, and secure data handling for audit readiness. We integrate with payroll, accounting, and identity providers so businesses can adopt the platform without disrupting existing processes.</p>
+      <div></dibe the trusted global platform for transparent, policy-driven expense management and actionable financial insights.
+      Expense Management is a purpose-built platform that brings clarity and control to corporate spending. With mobile-first receipt capture, configurable approval chains, and real-time dashboards, we streamline expense submission and approvals so finance and managers can focus on exceptions, not paperwork. Our secure, auditable system integrates with payroll and accounting tools and supports multi-currency reporting, helping businesses improve compliance and reduce reimbursements time.</h4>
     </div>
 
-    <!-- Services -->
+    <!-- Services now placed below About Us -->
     <div class="services" aria-labelledby="services-heading">
-      <h3 id="services-heading">Our Services</h3>
+      <h3 id="services-heading">Our services</h3>
       <div class="services-grid">
         <div class="service-card">
-          <h4>📷 Receipt OCR</h4>
-          <p>Upload or capture receipts and extract key details automatically.</p>
+          <h4>Receipt capture & OCR</h4>
+          <p>Upload receipts via mobile or web and extract key fields automatically.</p>
         </div>
         <div class="service-card">
-          <h4>⚙️ Approval Policies</h4>
-          <p>Define workflow rules for seamless review and authorization.</p>
+          <h4>Policy-driven approvals</h4>
+          <p>Define rules and approval chains to enforce company spending policies.</p>
         </div>
         <div class="service-card">
-          <h4>📊 Analytics</h4>
-          <p>Track trends, filter by employee, and export reports easily.</p>
+          <h4>Real-time Notifications System</h4>
+          <p>Dashboards and exportable reports that make finance decisions data-driven.</p>
         </div>
         <div class="service-card">
-          <h4>💱 Multi-Currency</h4>
-          <p>Global-ready with automatic exchange conversions.</p>
+          <h4>Multi-currency support</h4>
+          <p>Accurate conversion and consolidated reporting across regions.</p>
+        </div>
+        <div class="service-card">
+          <h4>Role-based security</h4>
+          <p>Least-privilege access and audit trails for compliance and control.</p>
+        </div>
+        <div class="service-card">
+          <h4>Integrations with Multiples</h4>
+          <p>Connect with accounting tools, HR systems, and single sign-on providers.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick Submit -->
+  <!-- Quick Expense Submit (like Google style) -->
   <section class="quick-submit">
     <h3>Submit an Expense</h3>
     <div class="submit-row">
@@ -75,12 +80,11 @@
           <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
         </label>
         <label class="upload-btn">
-          📁 Upload File
+          📁 Upload (PDF / Image)
           <input id="fileInput" type="file" accept="application/pdf,image/*" hidden>
         </label>
-        <button id="pasteBtn" class="upload-btn">📋 Paste Receipt</button>
+        <button id="pasteBtn" class="upload-btn">📋 Paste Receipt Data</button>
       </div>
-
       <div class="submit-form">
         <label>Amount</label>
         <input id="expAmount" type="number" step="0.01" placeholder="0.00">
@@ -88,94 +92,80 @@
         <input id="expDate" type="date">
         <label>Employee</label>
         <input id="employee" type="text" placeholder="Employee name">
-        <label>Action</label>
+        <label>Choose your response</label>
         <select id="expResponse">
-          <option value="">Select</option>
+          <option value="">Select action</option>
           <option value="save">Save Draft</option>
-          <option value="submit">Submit</option>
+          <option value="submit">Submit for Approval</option>
         </select>
-        <button id="submitExpense" class="btn">Submit Expense</button>
+        <div style="margin-top:8px"><button id="submitExpense" class="btn">Submit Expense</button></div>
       </div>
     </div>
-    <p class="note">This demo currently runs locally. In production, it’ll connect to your Node backend API.</p>
+    <p class="note">You can use camera to capture receipts, upload PDFs or paste text from receipt. This demo shows local behavior only.</p>
   </section>
 
-  <!-- Info Boxes -->
+  <!-- Info boxes (clickable) -->
   <section class="info-boxes">
     <div class="info-grid">
       <div class="info-card" data-key="employee">
         <h4>Employee Details</h4>
-        <p>Manage your profile and expense records.</p>
+        <p>View and edit your personal profile, reimbursement methods and submitted expenses.</p>
       </div>
       <div class="info-card" data-key="manager">
         <h4>Manager Team</h4>
-        <p>Approve and monitor team submissions.</p>
+        <p>See your team's pending approvals, recent submissions and spend trends.</p>
       </div>
       <div class="info-card" data-key="history">
         <h4>Track History</h4>
-        <p>View or export past expenses easily.</p>
+        <p>Search past expenses, export reports and filter by date or policy.</p>
       </div>
       <div class="info-card" data-key="details">
         <h4>Expense Details</h4>
-        <p>Inspect line items and approval logs.</p>
+        <p>Inspect expense line items, attachments and approval logs.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 Expense Management | Designed by Kavya Mishra</p>
-  </footer>
-
-  <!-- Login/Signup Modal -->
-  <div id="authModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-
-      <!-- Tabs -->
-      <div class="tabs">
-        <button id="tab-login" class="active">Login</button>
-        <button id="tab-signup">Signup</button>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col features">
+        <h4>Company Features</h4>
+        <ul>
+          <li>Receipt capture & OCR</li>
+          <li>Policy-driven approvals</li>
+          <li>Real-time analytics & dashboards</li>
+          <li>Multi-currency & conversions</li>
+          <li>Integrations (Accounting, HR, SSO)</li>
+        </ul>
       </div>
 
-      <!-- Login Form -->
-      <form id="loginForm" class="form active">
-        <h3>Login</h3>
-        <label>Email</label>
-        <input id="loginEmail" type="email" placeholder="Enter Email" required>
-        <label>Password</label>
-        <input id="loginPassword" type="password" placeholder="Enter Password" required>
-        <label>Role</label>
-        <select id="loginRole" required>
-          <option value="">Select Role</option>
-          <option>Employee</option>
-          <option>Manager</option>
-          <option>Admin</option>
-        </select>
-        <button type="submit" class="btn">Login</button>
-      </form>
+      <div class="footer-col ideas">
+        <h4>Ideas & Products</h4>
+        <div class="idea">
+          <h5>Expense</h5>
+          <p>Reliable expense processing that reduces time-to-reimbursement and enforces policy automatically.</p>
+        </div>
+        <div class="idea">
+          <h5>Smart Invest</h5>
+          <p>Financial insights and automated savings pathways to help organizations make smarter cash decisions.</p>
+        </div>
+      </div>
 
-      <!-- Signup Form -->
-      <form id="signupForm" class="form">
-        <h3>Signup</h3>
-        <label>Full Name</label>
-        <input id="signupName" type="text" placeholder="Enter Name" required>
-        <label>Email</label>
-        <input id="signupEmail" type="email" placeholder="Enter Email" required>
-        <label>Password</label>
-        <input id="signupPassword" type="password" placeholder="Create Password" required>
-        <label>Role</label>
-        <select id="signupRole" required>
-          <option value="">Select Role</option>
-          <option>Employee</option>
-          <option>Manager</option>
-          <option>Admin</option>
-        </select>
-        <button type="submit" class="btn">Signup</button>
-      </form>
+      <div class="footer-col contact">
+        <h4>Contact</h4>
+        <p>Phone: <a href="tel:9026288910">9026288910</a></p>
+        <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+        <p>Address: Engineering College Ajmer</p>
+      </div>
     </div>
-  </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Expense Management. All Rights Reserved.</p>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
 </html>
+
