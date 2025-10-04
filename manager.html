@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manager Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #a8e1e9;
+    }
+
+    /* Banner */
+    .banner {
+      background-color: #3f92e4;
+      color: white;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .banner h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .banner p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    /* Button Section */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .action-btn {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background-color: #4682b4;
+    }
+
+    /* Graph Section */
+    .graph {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .graph img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Table Section */
+    .table-wrapper {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.table-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e90ff;
+}
+
+.table-box {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+}
+
+.approve-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ff6347;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn:hover {
+  background-color: #ff4500;
+}
+
+.approve-btn.approved {
+  background-color: #32cd32;
+  cursor: default;
+}
+
+    /* Approval Section */
+    .approval {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .approval button {
+      background-color: #32cd32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .approval button:hover {
+      background-color: #228b22;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1>Welcome Manager</h1>
+    <h4>As a manager, you're empowered to lead your team, track performance, and make strategic decisions that drive success. </h4>
+
+    <p>Name: Balkrishna Shukla <span id="userName"></span> | ID: 12345678 <span id="userID"></span></p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <button class="action-btn" onclick="trackWork()">Track Employee Work</button>
+    <button class="action-btn" onclick="approveExpense()">Approve Pending Expense</button>
+  </div>
+
+
+  <!-- Table Section -->
+  <!-- Table Section -->
+<div class="table-wrapper">
+  <h2>Employee Tracking Table</h2>
+  <div class="table-box">
+    <table>
+      <thead>
+        <tr>
+          <th> Employee Name</th>
+          <th>Status</th>
+          <th>Last Submit Date</th>
+          <th>Pending Tasks</th>
+          <th>Expense Approval</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jay Kumar</td><td>Online</td><td>Oct 3</td><td>2</td>
+          <td><button class="approve-btn" onclick="approve(this)">Pending</button></td>
+        </tr>
+        <tr>
+          <td>Anushka Dixit</td><td>Offline</td><td>Oct 1</td><td>5</td>
+          <td><button class="approve-btn approved" disabled>Approved</button></td>
+        </tr>
+        <tr>
+          <td>Pulkit Kumawat</td><td>Online</td><td>Oct 4</td><td>1</td>
+          <td><button class="approve-btn" onclick="approve(this)">Pending</button></td>
+        </tr>
+        <tr>
+          <td>Krishna Sharma</td><td>Offline</td><td>Sep 30</td><td>3</td>
+          <td><button class="approve-btn" onclick="approve(this)">Pending</button></td>
+        </tr>
+        <tr>
+          <td>Kavya Mishra</td><td>Online</td><td>Oct 2</td><td>0</td>
+          <td><button class="approve-btn approved" disabled>Approved</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <!-- Approval Section -->
+  <div class="approval">
+    <button onclick="approveAll()">Approve All</button>
+    <button onclick="sendToHead()">Send to HEAD</button>
+  </div>
+
+  <script>
+    
+    document.getElementById('userName').textContent = sessionStorage.getItem('userName') || 'Manager';
+    document.getElementById('userID').textContent = sessionStorage.getItem('userID') || '---';
+
+    function trackWork() {
+      alert("Redirecting to Employee Work Tracker...");
+      
+    }
+
+    function approveExpense() {
+      alert("Opening Expense Approval Panel...");
+      
+    }
+
+    function approveAll() {
+      alert("All pending expenses approved!");
+    }
+
+    function sendToHead() {
+      alert("Report sent to HEAD successfully.");
+    }
+  </script>
+  <script>
+  function approve(button) {
+    button.textContent = "Approved";
+    button.classList.add("approved");
+    button.disabled = true;
+  }
+</script>
+</body>
+</html>
