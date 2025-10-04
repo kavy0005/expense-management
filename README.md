@@ -1,6 +1,7 @@
 ## Video presentation link
 
 
+
 Expense Management App
 
 A full-stack Expense Management application that automates expense submission and multi-level approvals with flexible conditional rules and OCR-based receipt parsing.
@@ -52,6 +53,9 @@ Team Members
 ## Reviewer
 
 - Aman Patel
+  
+## How to Start
+- Start with  running index.html
   
 ## Core Features
 
