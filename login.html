@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #68cee7; /* Light Indigo */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-box {
+      background-color: #0b5fa3; /* Blue */
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .form-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input:hover, select:hover {
+      background-color: #42b7d4;
+      transform: scale(1.02);
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4499d1;
+      color: #0e0f0f;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+     background-color: #1539db;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .signup-link a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .signup-link a:hover {
+      color: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <form id="loginForm">
+      <h3>Login</h3>
+
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter Name" required />
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter Email" required />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter Password" required />
+
+      <label>Role</label>
+      <select required>
+        <option value="">Select Role</option>
+        <option>Employee</option>
+        <option>Manager</option>
+        <option>Admin</option>
+      </select>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <div class="signup-link">
+      <p>Don't have an account? <a href="signup.html">Create Account</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

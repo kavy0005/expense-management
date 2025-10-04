@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #68cee7; /* Light Indigo */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-box {
+      background-color: #0b5fa3; /* Blue */
+      color: rgb(251, 250, 253);
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .form-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input:hover, select:hover {
+      background-color: #42b7d4;
+      transform: scale(1.02);
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #42a8ec;
+      color: #03070a;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1539db;
+    }
+
+    /* Scrollbar styling */
+    .form-box::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .form-box::-webkit-scrollbar-thumb {
+      background-color: #32afce;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <form id="signupForm">
+      <h3>Signup</h3>
+
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter Name" required />
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter Email" required />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Create Password" required />
+
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+
+      <label>Upload Photo:</label>
+      <input type="file" name="photo" accept="image/*" required />
+
+      <label>Upload ID PDF:</label>
+      <input type="file" name="idpdf" accept="application/pdf" required />
+
+      <label>Role</label>
+      <select required>
+        <option value="">Select Role</option>
+        <option>Employee</option>
+        <option>Manager</option>
+        <option>Admin</option>
+      </select>
+
+      <button type="submit" class="btn">Signup</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      const pass = document.getElementById('password').value;
+      const confirm = document.getElementById('confirmPassword').value;
+      if (pass !== confirm) {
+        alert('Passwords do not match!');
+        e.preventDefault();
+      }
+    });
+  </script>
+
+</body>
+</html>
